@@ -25,10 +25,22 @@ curl -X POST http://localhost:3005/process-tree \
       }
     },
     {
+      "condition": "Math.floor(Math.random() * 5) + 1 === 4",
+      "loop": 10,
+      "trueAction": {
+        "action": "send_sms",
+        "params": ["+42342342342", "Hello Hello, Condition is True"]
+      }
+    },
+    {
       "steps": [
         {
           "action": "send_email",
           "params": ["new-awesome-user@email.com", "Welcome to our platform!"]
+        },
+        {
+          "action": "send_email",
+          "params": ["new-awesome-user2@email.com", "Welcome to our platform!"]
         }
       ]
     }
